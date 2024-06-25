@@ -1,0 +1,26 @@
+.sideBar{
+    display: 'flex';
+    height: '100vh';
+}
+.sidBartop{
+    background-color: '#fff'
+}
+.imgAndBtn{
+    padding: '10px';
+     text-align: center;
+}
+.btnColl{ 
+    background: navajowhite;
+     border: none;
+      color: black;
+      margin-top: 10px;
+      padding-inline: 10px;
+     }
+.inp{
+    width: 500px;
+}
+.logoImg img{
+    width: 150px;
+    height: 50px;
+    margin-left: 50px;
+}

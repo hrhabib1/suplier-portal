@@ -1,0 +1,49 @@
+import { createBrowserRouter } from "react-router-dom";
+import Main from "../Layout/Main";
+import Home from "../Pages/Home/Home";
+import LogIn from "../Pages/LogIn/LogIn";
+import Notification from "../Pages/Notification/Notification";
+import Inbox from "../Pages/Notification/Inbox";
+import Sent from "../Pages/Notification/Sent";
+import Draft from "../Pages/Notification/Draft";
+
+export const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Main></Main>,
+        children:[
+          {
+              path: '/',
+              element: <Home></Home>
+          },
+          {
+            path: 'mail',
+            element: <Notification></Notification>,
+            children:[
+                {
+                    path: 'inbox',
+                    element:<Inbox></Inbox>
+                },
+                {
+                    path: 'sent',
+                    element:<Sent></Sent>
+                },
+                {
+                    path: 'draft',
+                    element:<Draft></Draft>
+                },
+            ]
+          },
+        ]},
+        {
+        path: "/logIn",
+        element:<LogIn></LogIn>
+        },
+        {
+            path:"*",
+            element:<div className="text-black p-10 text-center">
+                <h1>404 Not Found</h1>
+                <p>The page you are looking for does not exist.</p>
+              </div>
+          }
+    ])
