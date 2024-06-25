@@ -23,30 +23,30 @@ const SideBare = () => {
         </div>
         <Menu iconShape="circle" className='text-black'>
         <SubMenu label='User Management'  icon={<FaUserPlus />} className='text-black mt-5'>
-          <MenuItem icon={<FaUserPlus />}>
-            <Link to="/add-user" className="flex flex-row items-center gap-3">
-              Add User
+          <MenuItem>
+            <Link to="/add-user" className=" flex flex-row items-center gap-3 px-7">
+            <FaUserPlus /> <span>Add User</span>
             </Link>
           </MenuItem>
-          <MenuItem icon={<FaUserGroup />}>
-            <Link to="/all-users" className="flex flex-row items-center gap-3">
-              All Users
+          <MenuItem>
+            <Link to="/all-users" className=" flex flex-row items-center gap-3 px-7">
+            <FaUserGroup /> <span>All Users</span>
             </Link>
           </MenuItem>
-          <MenuItem icon={<TbBrandTelegram />}>
-            <Link to="/invite-users" className="flex flex-row items-center gap-3">
-              Invite Users
+          <MenuItem>
+            <Link to="/invite-users" className=" flex flex-row items-center gap-3 px-7">
+            <TbBrandTelegram /> <span>Invite Users</span>
             </Link>
           </MenuItem>
         </SubMenu>
-        <MenuItem icon={<FaBars />}>
-          <Link to="/items" className='text-black'>
-            Items
+        <MenuItem>
+          <Link to="/items"className=" flex flex-row items-center gap-3 px-7">
+          <FaBars /> <span>Items</span>
           </Link>
         </MenuItem>
-        <MenuItem icon={<FaUser />}>
-          <Link to="/profile" className='text-black'>
-            Profile
+        <MenuItem>
+          <Link to="/profile"className=" flex flex-row items-center gap-3 px-7">
+          <FaUser /> <span>Profile</span>
           </Link>
         </MenuItem>
       </Menu>

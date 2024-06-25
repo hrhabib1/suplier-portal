@@ -8,7 +8,7 @@ const Inbox = () => {
 
     return (
         <div className="overflow-x-auto">
-            <h1 className="text-black font-bold text-start">Inbox</h1>
+            <h1 className="text-black font-bold text-start text-2xl mb-10">Inbox</h1>
             <table className="min-w-full border-collapse">
                 <thead>
                     <tr>
@@ -20,7 +20,7 @@ const Inbox = () => {
                 <tbody>
                     {emails.map((email, index) => (
                         <tr key={index} className="border-t">
-                            <td className="px-4 py-2 font-bold text-black">{email.from}</td>
+                            <td className="px-4 py-2 w-40 font-bold text-black">{email.from}</td>
                             <td className="px-4 py-2 text-gray-700">{email.subject}</td>
                             <td className="px-4 py-2 text-gray-700">{email.date}</td>
                         </tr>

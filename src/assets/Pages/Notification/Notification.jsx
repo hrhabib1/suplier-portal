@@ -13,7 +13,7 @@ const Notification = () => {
             <Link className="text-xl flex flex-row items-center gap-3 px-7" to={"sent"}><TbBrandTelegram /> Sent</Link>
             <Link className="text-xl flex flex-row items-center gap-3 px-7" to={"draft"}><RiDraftLine /> Draft</Link>
             </div>
-            <div className="col-start-2 col-end-13 p-10 border rounded">
+            <div className="col-start-2 col-end-13 px-5 py-3 border rounded">
             <Outlet></Outlet>
             </div>
             
