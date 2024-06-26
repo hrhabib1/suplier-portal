@@ -8,6 +8,8 @@ import Sent from "../Pages/Notification/Sent";
 import Draft from "../Pages/Notification/Draft";
 import AddUser from "../Pages/User/AddUser";
 import InviteUser from "../Pages/User/InviteUser";
+import Item from "../Pages/Item/Item";
+import AllUser from "../Pages/User/AllUser";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
           {
               path: '/invite-users',
               element: <InviteUser></InviteUser>
+          },
+          {
+              path: '/all-users',
+              element: <AllUser></AllUser>
+          },
+          {
+              path: '/item',
+              element: <Item></Item>
           },
           {
             path: 'mail',

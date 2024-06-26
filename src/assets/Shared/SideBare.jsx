@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { FaUserPlus, FaBars, FaUser, FaTimes } from 'react-icons/fa';
 import "../Style/Style.css"
@@ -41,7 +41,7 @@ const SideBare = () => {
           </MenuItem>
         </SubMenu>
        
-          <Link to="/items"className=" flex flex-row items-center gap-3">
+          <Link to="/item" className=" flex flex-row items-center gap-3">
           <MenuItem icon={<FaBars />}>
            <span>Items</span>
            </MenuItem>
