@@ -14,7 +14,8 @@ const SideBare = () => {
   };
 
   return (
-    <div className={collapsed?"sideBar grid grid-cols-12 gap-5 pt-16": "sideBar grid grid-cols-7 gap-5 pt-16" } >
+    <div className={collapsed?"sideBar grid grid-cols-12 gap-5 pt-16 transition-0.5s": "sideBar grid grid-cols-7 gap-5 pt-16 transition-0.5s" } >
+      <div className='fixed'>
       <Sidebar className='sidBartop' collapsed={collapsed}>
         <div className='imgAndBtn'>
           <button className='text-xl py-3 btnColl' onClick={handleToggle}>
@@ -39,19 +40,21 @@ const SideBare = () => {
             </Link>
           </MenuItem>
         </SubMenu>
-        <MenuItem>
-          <Link to="/items"className=" flex flex-row items-center gap-3 px-7">
-          <FaBars /> <span>Items</span>
-          </Link>
+       
+          <Link to="/items"className=" flex flex-row items-center gap-3">
+          <MenuItem icon={<FaBars />}>
+           <span>Items</span>
+           </MenuItem>
+          </Link>       
+          <Link to="/profile"className="flex flex-row items-center gap-3">
+          <MenuItem icon={<FaUser />}>
+           <span>Profile</span>       
         </MenuItem>
-        <MenuItem>
-          <Link to="/profile"className=" flex flex-row items-center gap-3 px-7">
-          <FaUser /> <span>Profile</span>
           </Link>
-        </MenuItem>
       </Menu>
       </Sidebar>
-      <main className={collapsed?"col-start-2 col-end-13 p-10": "col-start-2 col-end-8 p-10" } >
+      </div>
+      <main className={collapsed?"col-start-2 col-end-13 p-10 transition-0.5s": "col-start-2 col-end-8 p-10 transition-0.5s" } >
       <Outlet></Outlet>
       </main>
     </div>

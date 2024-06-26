@@ -6,6 +6,8 @@ import Notification from "../Pages/Notification/Notification";
 import Inbox from "../Pages/Notification/Inbox";
 import Sent from "../Pages/Notification/Sent";
 import Draft from "../Pages/Notification/Draft";
+import AddUser from "../Pages/User/AddUser";
+import InviteUser from "../Pages/User/InviteUser";
 
 export const router = createBrowserRouter([
     {
@@ -15,6 +17,14 @@ export const router = createBrowserRouter([
           {
               path: '/',
               element: <Home></Home>
+          },
+          {
+              path: '/add-user',
+              element: <AddUser></AddUser>
+          },
+          {
+              path: '/invite-users',
+              element: <InviteUser></InviteUser>
           },
           {
             path: 'mail',

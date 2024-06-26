@@ -1,25 +1,30 @@
-.sideBar{
+.sideBar {
     display: 'flex';
     height: '100vh';
 }
-.sidBartop{
-    background-color: '#fff'
+
+.sidBartop {
+    background-color: '#fff';
 }
-.imgAndBtn{
+
+.imgAndBtn {
     padding: '10px';
-     text-align: center;
+    text-align: center;
 }
-.btnColl{ 
+
+.btnColl {
     background: navajowhite;
-     border: none;
-      color: black;
-      margin-top: 10px;
-      padding-inline: 10px;
-     }
-.inp{
+    border: none;
+    color: black;
+    margin-top: 10px;
+    padding-inline: 10px;
+}
+
+.inp {
     width: 500px;
 }
-.logoImg img{
+
+.logoImg img {
     width: 150px;
     height: 50px;
     margin-left: 50px;
