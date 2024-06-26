@@ -10,6 +10,7 @@ import AddUser from "../Pages/User/AddUser";
 import InviteUser from "../Pages/User/InviteUser";
 import Item from "../Pages/Item/Item";
 import AllUser from "../Pages/User/AllUser";
+import Profile from "../Pages/Profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
           {
               path: '/item',
               element: <Item></Item>
+          },
+          {
+              path: '/profile',
+              element: <Profile></Profile>
           },
           {
             path: 'mail',
