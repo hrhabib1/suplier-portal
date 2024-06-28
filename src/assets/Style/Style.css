@@ -8,18 +8,24 @@
 }
 
 .imgAndBtn {
-    padding: '10px';
+    padding: 5px;
     text-align: center;
+    background: rgb(227, 225, 223);
+    width: 50px;
+    margin-inline: auto;
+    margin-top: 15px;
 }
 
 .btnColl {
-    background: navajowhite;
     border: none;
     color: black;
     margin-top: 10px;
     padding-inline: 10px;
+    transition: transform 0.5s ease;
 }
-
+.btnColl:hover {
+    transform: rotate(360deg);
+  }
 .inp {
     width: 500px;
 }
@@ -29,3 +35,11 @@
     height: 50px;
     margin-left: 50px;
 }
+.link-default {
+    transition: background-color 0.5s ease;
+  }
+  
+.link-clicked {
+    background-color: #ef8282;
+    transition: background-color 0.5s ease;
+  }

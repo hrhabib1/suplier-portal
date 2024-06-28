@@ -13,10 +13,10 @@ const TopBar = () => {
             alt="Supplier Portal Logo" />
             </div>
             <div className="flex-none gap-10 ">
-                <Link className="text-3xl text-black" to={'/'}><CiHome></CiHome></Link>
-            <Link className="text-3xl text-black" to={"/notification"}><IoIosNotificationsOutline /></Link>
-            <Link className="text-3xl text-black" to={"/task"}><FaTasks /></Link>
-            <Link className="text-3xl text-black" to={"/mail"}><CiMail /></Link>
+                <Link className="text-3xl text-black p-3 hover:bg-slate-100" to={'/'}><CiHome></CiHome></Link>
+            <Link className="text-3xl text-black p-3 hover:bg-slate-100" to={"/notification"}><IoIosNotificationsOutline /></Link>
+            <Link className="text-3xl text-black p-3 hover:bg-slate-100" to={"/task"}><FaTasks /></Link>
+            <Link className="text-3xl text-black p-3 hover:bg-slate-100" to={"/mail"}><CiMail /></Link>
             <Link className=" text-white bg-red-500 px-3 py-1 rounded" to={"/logIn"}><button className=" flex flex-row items-center"><CgLogOff className="text-3xl" />Log Out</button></Link>
             </div>
         </div>

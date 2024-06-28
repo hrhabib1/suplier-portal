@@ -14,7 +14,7 @@ const SideBare = () => {
   };
 
   return (
-    <div className={collapsed?"sideBar grid grid-cols-12 gap-5 pt-16 transition-0.5s": "sideBar grid grid-cols-7 gap-5 pt-16 transition-0.5s" } >
+    <div className={collapsed?"sideBar grid grid-cols-12 gap-5 pt-16 transition duration-300": "sideBar grid grid-cols-7 gap-5 pt-16 transition duration-300" } >
       <div className='fixed'>
       <Sidebar className='sidBartop' collapsed={collapsed}>
         <div className='imgAndBtn'>
@@ -54,7 +54,7 @@ const SideBare = () => {
       </Menu>
       </Sidebar>
       </div>
-      <main className={collapsed?"col-start-2 col-end-13 p-10 transition-0.5s": "col-start-2 col-end-8 p-10 transition-0.5s" } >
+      <main className={collapsed?"col-start-2 col-end-13 py-10 pl-28 pr-10 transition duration-300": "col-start-2 col-end-8 py-10 pl-28 pr-10 transition duration-300" } >
       <Outlet></Outlet>
       </main>
     </div>
