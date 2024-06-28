@@ -11,6 +11,8 @@ import InviteUser from "../Pages/User/InviteUser";
 import Item from "../Pages/Item/Item";
 import AllUser from "../Pages/User/AllUser";
 import Profile from "../Pages/Profile/Profile";
+import Departments from "../Pages/Departments/Departments";
+import CreateDepartments from "../Pages/Departments/CreateDepartments";
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +42,14 @@ export const router = createBrowserRouter([
           {
               path: '/profile',
               element: <Profile></Profile>
+          },
+          {
+              path: '/departments',
+              element: <Departments></Departments>
+          },
+          {
+              path: '/create-departments',
+              element: <CreateDepartments></CreateDepartments>
           },
           {
             path: 'mail',

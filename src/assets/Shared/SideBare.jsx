@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import { FaUserPlus, FaBars, FaUser, FaTimes } from 'react-icons/fa';
+import { FaUserPlus, FaBars, FaUser, FaTimes, FaRegListAlt } from 'react-icons/fa';
 import "../Style/Style.css"
 import { Link, Outlet } from 'react-router-dom';
 import { FaUserGroup } from 'react-icons/fa6';
 import { TbBrandTelegram } from 'react-icons/tb';
+import { PiNoteLight } from 'react-icons/pi';
 const SideBare = () => {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -14,7 +15,7 @@ const SideBare = () => {
   };
 
   return (
-    <div className={collapsed?"sideBar grid grid-cols-12 gap-5 pt-16 transition duration-300": "sideBar grid grid-cols-7 gap-5 pt-16 transition duration-300" } >
+    <div className={collapsed?"sideBar grid grid-cols-12 gap-5 pt-16": "sideBar grid grid-cols-7 gap-5 pt-16" } >
       <div className='fixed'>
       <Sidebar className='sidBartop' collapsed={collapsed}>
         <div className='imgAndBtn'>
@@ -40,6 +41,18 @@ const SideBare = () => {
             </Link>
           </MenuItem>
         </SubMenu>
+        <SubMenu label='Departments'  icon={<FaRegListAlt />} className='text-black mt-5'>
+          <MenuItem>
+            <Link to="/departments" className=" flex flex-row items-center gap-3 px-2">
+            <FaRegListAlt /> <span>Departments</span>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to="/create-departments" className=" flex flex-row items-center gap-3 px-2">
+            <PiNoteLight className='text-xl'/> <span>Create Departments</span>
+            </Link>
+          </MenuItem>
+        </SubMenu>
        
           <Link to="/item" className=" flex flex-row items-center gap-3">
           <MenuItem icon={<FaBars />}>
@@ -54,7 +67,7 @@ const SideBare = () => {
       </Menu>
       </Sidebar>
       </div>
-      <main className={collapsed?"col-start-2 col-end-13 py-10 pl-28 pr-10 transition duration-300": "col-start-2 col-end-8 py-10 pl-28 pr-10 transition duration-300" } >
+      <main className={collapsed?"col-start-2 col-end-13 py-10 pl-28 pr-10": "col-start-2 col-end-8 py-10 pl-28 pr-10" } >
       <Outlet></Outlet>
       </main>
     </div>
