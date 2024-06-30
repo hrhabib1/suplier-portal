@@ -1,18 +1,15 @@
-const users = [
-    {
-      id: 'a2a32793-1c9e-4b8f-ac79-557e90b670cd',
-      email: 'abc@gmail.com',
-    },
-    {
-      id: 'cf264b2d-4bdf-46bf-94d1-cf264b2d-4bdf',
-      email: 'habib@gmail.com',
-    },
-    {
-      id: '040b09dd-c2c5-48d9-48d9-176a9fc7f17b',
-      email: 'hr@gmail.com',
-    }
-  ];
+import { useEffect } from "react";
+import { useState } from "react";
+
 const Departments = () => {
+  const [departmentes, setDepartments] = useState([]);
+
+  useEffect(() => {
+      fetch('http://localhost:3000/departments')
+          .then(res => res.json())
+          .then(data => setDepartments(data))
+  }, [])
+
     return (
         <div>
       <h1 className="text-center text-black font-bold py-2 border mb-5 text-xl">Departments</h1>
@@ -25,10 +22,12 @@ const Departments = () => {
           </tr>
         </thead>
         <tbody className="text-black">
-          {users.map(user => (
-            <tr key={user.id}>
-              <td className="p-5 border w-96">{user.id}</td>
-              <td className="p-5 border">{user.email}</td>
+          {departmentes.map(department => (
+            <tr 
+            key={department.departments_id}
+            >
+              <td className="p-5 border w-96">{department.departments_id}</td>
+              <td className="p-5 border">{department.departments_name}</td>
               <td className="p-5 border w-60">
                 <div>
                     <button className="bg-slate-200 p-2 rounded mr-5">Update</button>
