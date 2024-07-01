@@ -13,6 +13,7 @@ import AllUser from "../Pages/User/AllUser";
 import Profile from "../Pages/Profile/Profile";
 import Departments from "../Pages/Departments/Departments";
 import CreateDepartments from "../Pages/Departments/CreateDepartments";
+import UpdateDepartment from "../Pages/Departments/UpdateDepartment";
 
 export const router = createBrowserRouter([
     {
@@ -51,6 +52,11 @@ export const router = createBrowserRouter([
               path: '/create-departments',
               element: <CreateDepartments></CreateDepartments>
           },
+          {
+            path: '/departments/:id',
+            element:<UpdateDepartment></UpdateDepartment>,
+            loader: ({params}) => fetch(`http://localhost:3000/departments/${params.id}`)
+        },
           {
             path: 'mail',
             element: <Notification></Notification>,

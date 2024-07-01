@@ -1,18 +1,48 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import DepartmentRow from "./DepartmentRow";
+import Swal from "sweetalert2";
 
 const Departments = () => {
-  const [departmentes, setDepartments] = useState([]);
+  const [departments, setDepartments] = useState([]);
 
   useEffect(() => {
-      fetch('http://localhost:3000/departments')
-          .then(res => res.json())
-          .then(data => setDepartments(data))
-  }, [])
+    fetch("http://localhost:3000/departments")
+      .then((res) => res.json())
+      .then((data) => setDepartments(data));
+  }, []);
 
-    return (
-        <div>
-      <h1 className="text-center text-black font-bold py-2 border mb-5 text-xl">Departments</h1>
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/departments/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+            setDepartments(data.filter((department) => department.departments_id !== id))
+
+          })
+    }});
+  };
+
+  return (
+    <div>
+      <h1 className="text-center text-black font-bold py-2 border mb-5 text-xl">
+        Departments
+      </h1>
       <table className="border w-full">
         <thead>
           <tr className="bg-gray-100">
@@ -22,24 +52,17 @@ const Departments = () => {
           </tr>
         </thead>
         <tbody className="text-black">
-          {departmentes.map(department => (
-            <tr 
-            key={department.departments_id}
-            >
-              <td className="p-5 border w-96">{department.departments_id}</td>
-              <td className="p-5 border">{department.departments_name}</td>
-              <td className="p-5 border w-60">
-                <div>
-                    <button className="bg-slate-200 p-2 rounded mr-5">Update</button>
-                    <button className="bg-slate-200 p-2 rounded">Delate</button>
-                </div>
-              </td>
-            </tr>
+          {departments.map((department) => (
+            <DepartmentRow
+              key={department.departments_id}
+              department={department}
+              handleDelete={handleDelete}
+            />
           ))}
         </tbody>
       </table>
     </div>
-    );
+  );
 };
 
 export default Departments;
