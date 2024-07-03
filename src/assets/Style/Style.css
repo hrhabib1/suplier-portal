@@ -20,7 +20,6 @@
     border: none;
     color: black;
     margin-top: 10px;
-    padding-inline: 10px;
     transition: transform 0.5s ease;
 }
 .btnColl:hover {

@@ -1,8 +1,10 @@
-import { useLoaderData } from "react-router-dom";
-
+import {  useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import {  useNavigate } from 'react-router-dom';
 const UpdateDepartment = () => {
-   const service = useLoaderData()
-   const {departments_id} = service;
+   const departmentData = useLoaderData()
+  const {departments_id, departments_name} = departmentData;
+  const navigate = useNavigate()
    console.log(departments_id)
     const handleUpdateDepartment = event => {
         event.preventDefault();
@@ -22,6 +24,14 @@ const UpdateDepartment = () => {
         })
             .then(res => res.json())
             .then(data => {
+                Swal.fire({
+                    title: "Updeted!",
+                    text: "Your file has been updeteted.",
+                    icon: "success",
+                  });
+                  if (data) {
+                    return navigate('/departments');
+                }
                 console.log(data);
             })
         form.reset();
@@ -39,13 +49,13 @@ const UpdateDepartment = () => {
                         <label className="label">
                             <span className="label-text text-black font-semibold">Department Id</span>
                         </label>
-                        <input type="text" name='deptId' placeholder="Enter Department ID" className="input input-bordered bg-white inp text-black" required />
+                        <input type="text" name='deptId' value={departments_id} className="input input-bordered bg-white inp text-black" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-black font-semibold">Department Name</span>
                         </label>
-                        <input type="text" name='deptName' placeholder="Enter Department Name" className="input input-bordered bg-white inp text-black" required />
+                        <input type="text" name='deptName' defaultValue={departments_name} className="input input-bordered bg-white inp text-black" required />
                     </div>
                     <div className="form-control mt-5 w-48 mx-auto">
                         <button type="submit" className="btn btn-light px-2">Create</button>

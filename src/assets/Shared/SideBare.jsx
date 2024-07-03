@@ -19,7 +19,7 @@ const SideBare = () => {
       <div className='fixed'>
       <Sidebar className='sidBartop' collapsed={collapsed}>
         <div className='imgAndBtn'>
-          <button className='text-xl py-3 btnColl' onClick={handleToggle}>
+          <button className='text-xl p-1 btnColl' onClick={handleToggle}>
             {collapsed ? <FaBars /> : <FaTimes />}
           </button>
         </div>

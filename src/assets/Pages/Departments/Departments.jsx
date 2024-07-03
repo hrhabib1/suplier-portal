@@ -6,36 +6,54 @@ const Departments = () => {
   const [departments, setDepartments] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/departments")
-      .then((res) => res.json())
-      .then((data) => setDepartments(data));
+    const fetchDepartments = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/departments");
+        const data = await response.json();
+        setDepartments(data);
+      } catch (error) {
+        console.error("Error fetching departments:", error);
+      }
+    };
+
+    fetchDepartments();
   }, []);
 
-  const handleDelete = (id) => {
-    Swal.fire({
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:3000/departments/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success"
-            });
-            setDepartments(data.filter((department) => department.departments_id !== id))
+      confirmButtonText: "Yes, delete it!",
+    });
 
-          })
-    }});
+    if (result.isConfirmed) {
+      try {
+        const response = await fetch(`http://localhost:3000/departments/${id}`, {
+          method: "DELETE",
+        });
+
+        // Check if the response has content before parsing it as JSON
+        let data = {};
+        if (response.headers.get("content-length") == "0") {
+          data = await response.json();
+        }
+
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+
+        setDepartments(departments.filter((department) => department.departments_id !== id));
+        console.log(data);
+      } catch (error) {
+        console.error("Error deleting department:", error);
+      }
+    }
   };
 
   return (
