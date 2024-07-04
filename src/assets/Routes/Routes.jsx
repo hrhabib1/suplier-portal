@@ -14,6 +14,8 @@ import Profile from "../Pages/Profile/Profile";
 import Departments from "../Pages/Departments/Departments";
 import CreateDepartments from "../Pages/Departments/CreateDepartments";
 import UpdateDepartment from "../Pages/Departments/UpdateDepartment";
+import Employees from "../Pages/Employees/Employees";
+import AddEmployees from "../Pages/Employees/AddEmployees";
 
 export const router = createBrowserRouter([
     {
@@ -56,6 +58,14 @@ export const router = createBrowserRouter([
             path: '/departments/:id',
             element:<UpdateDepartment></UpdateDepartment>,
             loader: ({params}) => fetch(`http://localhost:3000/departments/${params.id}`)
+        },
+        {
+            path: '/employees',
+            element: <Employees></Employees>
+        },
+        {
+            path: '/addEmployee',
+            element: <AddEmployees></AddEmployees>
         },
           {
             path: 'mail',

@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
 const CreateDepartments = () => {
+    const navigate = useNavigate()
     const handleAddDepartment = event => {
         event.preventDefault();
         const form = event.target;
@@ -18,6 +22,14 @@ const CreateDepartments = () => {
         })
             .then(res => res.json())
             .then(data => {
+                Swal.fire({
+                    title: "Created Department!",
+                    text: "Your new department has been created.",
+                    icon: "success",
+                  });
+                  if (data) {
+                    return navigate('/departments');
+                }
                 console.log(data);
             })
         form.reset();

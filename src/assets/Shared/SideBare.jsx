@@ -6,6 +6,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { FaUserGroup } from 'react-icons/fa6';
 import { TbBrandTelegram } from 'react-icons/tb';
 import { PiNoteLight } from 'react-icons/pi';
+import { ImUser, ImUserPlus } from 'react-icons/im';
 const SideBare = () => {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -41,7 +42,7 @@ const SideBare = () => {
             </Link>
           </MenuItem>
         </SubMenu>
-        <SubMenu label='Departments'  icon={<FaRegListAlt />} className='text-black mt-5'>
+        <SubMenu label='Departments'  icon={<FaRegListAlt />} className='text-black'>
           <MenuItem>
             <Link to="/departments" className=" flex flex-row items-center gap-3 px-2">
             <FaRegListAlt /> <span>Departments</span>
@@ -50,6 +51,18 @@ const SideBare = () => {
           <MenuItem>
             <Link to="/create-departments" className=" flex flex-row items-center gap-3 px-2">
             <PiNoteLight className='text-xl'/> <span>Create Departments</span>
+            </Link>
+          </MenuItem>
+        </SubMenu>
+        <SubMenu label='Employees'  icon={<ImUser className='text-xl' />} className='text-black'>
+          <MenuItem>
+            <Link to="/employees" className=" flex flex-row items-center gap-3 px-2">
+            <ImUser className='text-xl' /> <span>Employees</span>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to="/addEmployee" className=" flex flex-row items-center gap-3 px-2">
+            <ImUserPlus className='text-xl'/> <span>Add Employee</span>
             </Link>
           </MenuItem>
         </SubMenu>
