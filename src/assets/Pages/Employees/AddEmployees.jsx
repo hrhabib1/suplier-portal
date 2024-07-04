@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddEmployees = () => {
+    const navigate = useNavigate()
     const [departments, setDepartments] = useState([]);
 
   useEffect(() => {
@@ -46,6 +49,14 @@ fetchDepartments();
     })
       .then((res) => res.json())
       .then((data) => {
+        Swal.fire({
+            title: "New Employee Added!",
+            text: "Your new employee has been added.",
+            icon: "success",
+          });
+          if (data) {
+            return navigate('/employees');
+        }
         console.log(data);
       });
     form.reset();

@@ -63,7 +63,7 @@ const Departments = () => {
       </h1>
       <table className="border w-full">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-gray-50">
             <th className="text-start p-2 border">Department ID</th>
             <th className="text-start p-2 border">Department Name</th>
             <th className="text-start p-2 border">Action</th>

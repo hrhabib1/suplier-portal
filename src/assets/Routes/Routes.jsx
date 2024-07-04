@@ -16,85 +16,84 @@ import CreateDepartments from "../Pages/Departments/CreateDepartments";
 import UpdateDepartment from "../Pages/Departments/UpdateDepartment";
 import Employees from "../Pages/Employees/Employees";
 import AddEmployees from "../Pages/Employees/AddEmployees";
+import EmployeeTable from "../Pages/Employees/EmployeeTable";
 
 export const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
         path: "/",
-        element: <Main></Main>,
-        children:[
-          {
-              path: '/',
-              element: <Home></Home>
-          },
-          {
-              path: '/add-user',
-              element: <AddUser></AddUser>
-          },
-          {
-              path: '/invite-users',
-              element: <InviteUser></InviteUser>
-          },
-          {
-              path: '/all-users',
-              element: <AllUser></AllUser>
-          },
-          {
-              path: '/item',
-              element: <Item></Item>
-          },
-          {
-              path: '/profile',
-              element: <Profile></Profile>
-          },
-          {
-              path: '/departments',
-              element: <Departments></Departments>
-          },
-          {
-              path: '/create-departments',
-              element: <CreateDepartments></CreateDepartments>
-          },
-          {
-            path: '/departments/:id',
-            element:<UpdateDepartment></UpdateDepartment>,
-            loader: ({params}) => fetch(`http://localhost:3000/departments/${params.id}`)
-        },
-        {
-            path: '/employees',
-            element: <Employees></Employees>
-        },
-        {
-            path: '/addEmployee',
-            element: <AddEmployees></AddEmployees>
-        },
-          {
-            path: 'mail',
-            element: <Notification></Notification>,
-            children:[
-                {
-                    path: 'inbox',
-                    element:<Inbox></Inbox>
-                },
-                {
-                    path: 'sent',
-                    element:<Sent></Sent>
-                },
-                {
-                    path: 'draft',
-                    element:<Draft></Draft>
-                },
-            ]
-          },
-        ]},
-        {
-        path: "/logIn",
-        element:<LogIn></LogIn>
-        },
-        {
-            path:"*",
-            element:<div className="text-black p-10 text-center">
-                <h1>404 Not Found</h1>
-                <p>The page you are looking for does not exist.</p>
-              </div>
-          }
-    ])
+        element: <Home />,
+      },
+      {
+        path: "/add-user",
+        element: <AddUser />,
+      },
+      {
+        path: "/invite-users",
+        element: <InviteUser />,
+      },
+      {
+        path: "/all-users",
+        element: <AllUser />,
+      },
+      {
+        path: "/item",
+        element: <Item />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/departments",
+        element: <Departments />,
+      },
+      {
+        path: "/create-departments",
+        element: <CreateDepartments />,
+      },
+      {
+        path: "/departments/:id",
+        element: <UpdateDepartment />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/departments/${params.id}`),
+      },
+      {
+        path: "/employees",
+        element: <Employees />,
+      },
+      {
+        path: "/employees/:id",
+        element: <EmployeeTable />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/employees/${params.id}`),
+      },
+      {
+        path: "/addEmployee",
+        element: <AddEmployees />,
+      },
+      {
+        path: "/mail",
+        element: <Notification />,
+        children: [
+          { path: "", element: <Inbox /> },
+          { path: "sent", element: <Sent /> },
+          { path: "draft", element: <Draft /> },
+        ],
+      },
+    ],
+  },
+  { path: "/logIn", element: <LogIn /> },
+  {
+    path: "*",
+    element: (
+      <div className="text-black p-10 text-center">
+        <h1>404 Not Found</h1>
+        <p>The page you are looking for does not exist.</p>
+      </div>
+    ),
+  },
+]);
