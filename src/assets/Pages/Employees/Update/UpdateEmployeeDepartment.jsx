@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import PropTypes from "prop-types";
 
 const UpdateEmployeeDepartment = ({ department, onUpdated }) => {
   const [deptId, setDeptId] = useState('');
@@ -85,6 +86,13 @@ const UpdateEmployeeDepartment = ({ department, onUpdated }) => {
       </td>
     </tr>
   );
+};
+UpdateEmployeeDepartment.propTypes = {
+  department: PropTypes.shape({
+    departments_id: PropTypes.string.isRequired,
+    departments_name: PropTypes.string.isRequired,
+  }),
+  onUpdated: PropTypes.func.isRequired,
 };
 
 export default UpdateEmployeeDepartment;

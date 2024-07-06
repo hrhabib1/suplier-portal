@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import EmployeeDepartmentTableRow from "./EmployeeDepartmentTableRow";
 import Swal from "sweetalert2";
 import UpdateEmployeeDepartment from "./Update/UpdateEmployeeDepartment";
+import PropTypes from "prop-types";
 
 const EmployeeDepartmentTable = ({ onDepartmentSelect }) => {
   const [departments, setDepartments] = useState([]);
@@ -102,5 +103,8 @@ const EmployeeDepartmentTable = ({ onDepartmentSelect }) => {
     </div>
   );
 };
-
+EmployeeDepartmentTable.propTypes = {
+  onDepartmentSelect: PropTypes.shape ,
+  onUpdated: PropTypes.func.isRequired,
+};
 export default EmployeeDepartmentTable;
