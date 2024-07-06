@@ -44,7 +44,7 @@ const Departments = () => {
 
         Swal.fire({
           title: "Deleted!",
-          text: "Your file has been deleted.",
+          text: "Your department has been deleted.",
           icon: "success",
         });
 

@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom";
-import "../../Style/Style.css";
-
-const EmployeeDepartmentTableRow = ({ department, selectedDepartmentId, handleSelect }) => {
+const EmployeeDepartmentTableRow = ({ department, selectedDepartmentId, handleSelect, handleDelete, handleUpdateClick }) => {
   const { departments_id, departments_name } = department;
 
   return (
@@ -18,12 +15,17 @@ const EmployeeDepartmentTableRow = ({ department, selectedDepartmentId, handleSe
       <td className="p-5 border w-96">{departments_name}</td>
       <td className="p-5 border w-60">
         <div>
-          <Link className="p-2 rounded mr-2" to={`/departments/${departments_id}`}>
-            <button className="bg-slate-200 p-2 rounded mr-5">Update</button>
-          </Link>
           <button 
-        //   onClick={() => handleDelete(departments_id)}
-          >Delete</button>
+            className="bg-slate-200 p-2 rounded mr-5" 
+            onClick={() => handleUpdateClick(department)}
+          >
+            Update
+          </button>
+          <button 
+            onClick={() => handleDelete(departments_id)}
+          >
+            Delete
+          </button>
         </div>
       </td>
     </tr>

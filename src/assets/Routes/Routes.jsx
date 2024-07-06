@@ -17,6 +17,7 @@ import UpdateDepartment from "../Pages/Departments/UpdateDepartment";
 import Employees from "../Pages/Employees/Employees";
 import AddEmployees from "../Pages/Employees/AddEmployees";
 import EmployeeTable from "../Pages/Employees/EmployeeTable";
+import UpdateEmployeeDepartment from "../Pages/Employees/Update/UpdateEmployeeDepartment";
 
 export const router = createBrowserRouter([
   {
