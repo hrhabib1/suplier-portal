@@ -17,6 +17,7 @@ import UpdateDepartment from "../Pages/Departments/UpdateDepartment";
 import Employees from "../Pages/Employees/Employees";
 import AddEmployees from "../Pages/Employees/AddEmployees";
 import EmployeeTable from "../Pages/Employees/EmployeeTable";
+import DragAndDrop from "../Pages/DragAndDrop/DragAndDrop";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/all-users",
         element: <AllUser />,
+      },
+      {
+        path: "/dnd",
+        element: <DragAndDrop />,
       },
       {
         path: "/item",

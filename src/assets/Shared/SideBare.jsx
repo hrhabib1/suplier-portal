@@ -7,6 +7,7 @@ import { FaUserGroup } from 'react-icons/fa6';
 import { TbBrandTelegram } from 'react-icons/tb';
 import { PiNoteLight } from 'react-icons/pi';
 import { ImUser, ImUserPlus } from 'react-icons/im';
+import { RiDragDropFill } from 'react-icons/ri';
 const SideBare = () => {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -67,6 +68,11 @@ const SideBare = () => {
           </MenuItem>
         </SubMenu>
        
+          <Link to="/dnd" className=" flex flex-row items-center gap-3">
+          <MenuItem icon={<RiDragDropFill />}>
+           <span>Drag and Drop</span>
+           </MenuItem>
+          </Link>       
           <Link to="/item" className=" flex flex-row items-center gap-3">
           <MenuItem icon={<FaBars />}>
            <span>Items</span>

@@ -3,6 +3,9 @@ import EmployeeDepartmentTableRow from "./EmployeeDepartmentTableRow";
 import Swal from "sweetalert2";
 import UpdateEmployeeDepartment from "./Update/UpdateEmployeeDepartment";
 import PropTypes from "prop-types";
+import { Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { Link } from "react-router-dom";
+import { PiNoteLight } from "react-icons/pi";
 
 const EmployeeDepartmentTable = ({ onDepartmentSelect }) => {
   const [departments, setDepartments] = useState([]);
@@ -78,7 +81,17 @@ const EmployeeDepartmentTable = ({ onDepartmentSelect }) => {
             <th className="text-start p-2 border">Check</th>
             <th className="text-start p-2 border">Department ID</th>
             <th className="text-start p-2 border">Department Name</th>
-            <th className="text-start p-2 border">Action</th>
+            <th className="text-start p-2 border">
+            <Menu>
+            <SubMenu label='Action'>
+          <MenuItem>
+          <Link to="/create-departments" className=" flex flex-row items-center px-2">
+            <PiNoteLight className='text-xl'/> <span>Create Departments</span>
+            </Link>
+          </MenuItem>
+        </SubMenu>
+            </Menu>
+            </th>
           </tr>
         </thead>
         <tbody className="text-black">

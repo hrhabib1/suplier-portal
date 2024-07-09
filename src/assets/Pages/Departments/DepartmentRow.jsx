@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const DepartmentRow = ({ department, handleDelete}) => {
   const  {departments_id, departments_name} = department;
     return (
@@ -15,5 +15,12 @@ const DepartmentRow = ({ department, handleDelete}) => {
             </tr>
     );
 };
-
+DepartmentRow.propTypes = {
+  department: PropTypes.shape({
+    departments_id: PropTypes.string.isRequired,
+    departments_name: PropTypes.string.isRequired,
+  }),
+  handleDelete: PropTypes.shape ,
+  onUpdated: PropTypes.func.isRequired,
+};
 export default DepartmentRow;

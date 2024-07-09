@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import EmployeeTableRow from "./EmployeeTableRow";
 import Swal from "sweetalert2";
+import UpdateEmployee from "./Update/UpdateEmployee";
+import { Link } from "react-router-dom";
+import { ImUserPlus } from "react-icons/im";
+import { Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
 const EmployeeTable = ({ departmentId }) => {
   const [employees, setEmployees] = useState([]);
+  const [employeeToUpdate, setEmployeeToUpdate] = useState(null);
 
   useEffect(() => {
     const fetchEmployees = async () => {
@@ -57,6 +62,10 @@ const EmployeeTable = ({ departmentId }) => {
       }
     }
   };
+  const handleUpdateClick = (employee) => {
+    console.log("Updating employee:", employee);
+    setEmployeeToUpdate(employee);
+  };
 
   return (
     <div>
@@ -70,15 +79,32 @@ const EmployeeTable = ({ departmentId }) => {
             <th className="text-start p-2 border">email</th>
             <th className="text-start p-2 border">Job Title</th>
             <th className="text-start p-2 border">Department ID</th>
-            <th className="text-start p-2 border">Action</th>
+            <th className="text-start p-2 border">
+            <Menu>
+            <SubMenu label='Action'>
+          <MenuItem>
+            <Link to="/addEmployee" className=" flex flex-row items-center px-2">
+            <ImUserPlus className='text-xl'/> <span>Add Employee</span>
+            </Link>
+          </MenuItem>
+        </SubMenu>
+            </Menu>
+              </th>
           </tr>
         </thead>
         <tbody className="text-black">
+        {employeeToUpdate && (
+            <UpdateEmployee 
+              employee={employeeToUpdate}
+              onUpdated={() => setEmployeeToUpdate(null)}
+            />
+          )}
           {employees.map((employee) => (
             <EmployeeTableRow
               key={employee.employees_id}
               employee={employee}
               handleDelete={handleDelete}
+              handleUpdateClick={handleUpdateClick}
             />
           ))}
         </tbody>
