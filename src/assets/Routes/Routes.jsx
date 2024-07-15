@@ -18,6 +18,7 @@ import Employees from "../Pages/Employees/Employees";
 import AddEmployees from "../Pages/Employees/AddEmployees";
 import EmployeeTable from "../Pages/Employees/EmployeeTable";
 import DragAndDrop from "../Pages/DragAndDrop/DragAndDrop";
+import Dndpage from "../Pages/DragAndDrop/dnd/DndPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: "/dnd",
         element: <DragAndDrop />,
+      },
+      {
+        path: "/dndT",
+        element: <Dndpage/>,
       },
       {
         path: "/item",

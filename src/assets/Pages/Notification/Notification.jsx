@@ -4,7 +4,6 @@ import { RiDraftLine } from "react-icons/ri";
 import { TbBrandTelegram } from "react-icons/tb";
 import { Link, Outlet } from "react-router-dom";
 import '../../Style/Style.css'
-import Inbox from "./Inbox";
 
 const Notification = () => {
     const [clickedLink, setClickedLink] = useState('');
